@@ -1,0 +1,38 @@
+/*set body width and font*/
+body {
+    font-family: serif;
+    max-width: 1000px;
+    margin: auto;
+}
+/*make the navigation bars black and inline*/
+ul {
+    background-color: black;
+    padding: 20px;
+    
+}
+    
+li {   
+    display: inline;
+    font-size: 12;
+}
+ul li a {  
+    color: white;
+}
+/*change the font-sizes of the table*/
+th {
+    font-size: 24px;
+}
+td {
+    font-size: 18px;
+}
+/*set the width of the images on each page*/
+#logo {
+    width: 144px;
+}
+#promo {
+    width: 100%;
+    height: 214;
+}
+.tableImg {
+    width: 72px;
+}
