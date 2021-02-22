@@ -1,38 +1,123 @@
-/*set body width and font*/
+/*body*/
 body {
     font-family: serif;
     max-width: 1000px;
     margin: auto;
 }
-/*make the navigation bars black and inline*/
-ul {
-    background-color: black;
-    padding: 20px;
-    
+
+/*header*/
+header {
+    display: flex;
+    justify-content: space-between;
 }
-    
-li {   
-    display: inline;
-    font-size: 12;
+
+#logo {
+    width: auto;
+    height: 54px;
+    position: relative;
+    top: 30px;
+    left: 30px;
 }
-ul li a {  
-    color: white;
-}
-/*change the font-sizes of the table*/
-th {
+
+#slogan {
+    position: relative;
+    right: 350px;
+    top: 30px; 
     font-size: 24px;
 }
-td {
-    font-size: 18px;
+
+/*nav*/
+nav {
+    background-color: black;
+    padding: 0;
+} 
+
+nav ul {
+    display: flex;
+    list-style: none;
+    box-sizing: border-box;
+}  
+    
+nav ul li {   
+    font-size: 12;
+    padding: 15px 5px;
 }
-/*set the width of the images on each page*/
-#logo {
-    width: 144px;
+nav ul li a {  
+    color: white;
 }
+
+/*promo*/
 #promo {
+    box-sizing: border-box;
     width: 100%;
-    height: 214;
+    height: auto;
 }
-.tableImg {
-    width: 72px;
+
+/*main*/
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+/*left column Accueil*/
+    #leftColumnAccueil {
+        display: flex;
+        width: 70%;
+        flex-flow: row wrap;
+    }
+
+/*left column*/
+    .leftColumn {
+        display: flex;
+        width: 70%;
+        flex-direction: column;
+    }
+
+/*right column*/
+    #rightColumn {
+        display: flex;
+        width: 30%;
+        flex-flow: column wrap;
+        background-color: lightgrey;
+    }
+
+/*table*/
+table {
+    table-layout: auto;
+    width: 70%;
+}
+
+table thead {
+
+}
+
+table thead tr {
+
+}
+
+table thead tr th {
+    font-size: 18px;
+    text-align: center;
+}
+
+table tbody {
+
+}
+
+table tbody tr {
+
+}
+table tbody tr td {
+    font-size: 12px;
+    text-align: center;
+}
+
+.bbqImg {
+    width: auto;
+    height: 54px;
+}
+
+.brouetteImg {
+    width: 54px;
+    height: auto;
 }
