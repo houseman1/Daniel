@@ -1,0 +1,39 @@
+/*header*/
+#slogan {
+    position: static;
+    font-size: 1.5rem;
+}
+
+/*Columns*/
+#rightColumn {
+    display: none;
+}
+#leftColumnAccueil {
+    width: 100%;
+}
+#leftColumnTableau {
+    width: 100%
+}
+#leftColumnContact {
+    width: 100%;
+}
+
+/*nav*/
+nav ul {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+    
+/*fonts*/
+h1 {
+    font-size: 1.5rem;
+}
+h3 {
+    font-size: 1rem;
+}
+p {
+    font-size: 0.75rem;
+}
+a {
+    font-size: 0.75rem;
+}

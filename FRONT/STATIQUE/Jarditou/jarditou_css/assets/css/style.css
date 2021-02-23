@@ -1,3 +1,10 @@
+/*html*/
+html {
+    max-width: 100%;
+    height: auto;
+    font-size: 100%;
+}
+
 /*body*/
 body {
     font-family: serif;
@@ -35,7 +42,6 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    box-sizing: border-box;
 }  
     
 nav ul li {   
@@ -67,11 +73,18 @@ main {
     }
 
 /*left column*/
-    .leftColumn {
+    .leftColumnTableau {
         display: flex;
         width: 70%;
         flex-direction: column;
     }
+
+/*left columnContact*/
+.leftColumnContact {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+}
 
 /*right column*/
     #rightColumn {
