@@ -59,6 +59,5 @@ let letters = Array();
 for (i=0; i<=len; i++) {
     let l = word.substr(i,1);
     letters.push(l);
-    i++
 }
 alert(letters)
