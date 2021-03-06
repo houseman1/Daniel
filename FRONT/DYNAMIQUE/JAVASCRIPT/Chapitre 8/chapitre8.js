@@ -57,6 +57,8 @@ let lenWord = word.length;
 let letters = Array();
 let vowels = Array();
 let i = 0;
+let a = 0;
+
 
 for (i=0; i<=lenWord; i++) {
     let ltr = word.substr(i,1);
@@ -66,6 +68,7 @@ for (i=0; i<=lenWord; i++) {
     let ltr = letters[i];
     switch (ltr) { 
         case "a" :
+            a++;
         case "e" :
         case "i" :
         case "o" :
