@@ -20,8 +20,9 @@ function affiche (arr){
 
 //Les Tableaux - Exercice 2
 let int = 0;
+let postesContent = window.prompt("Enter content");
 function GetInteger(int){
-    
+    alert('ok');
 }
 
 function InitTab(){
@@ -41,5 +42,12 @@ function RechercheTab (){
 }
 
 function InfoTab (){
-    
+
 }
+
+function postes(postesContent){
+    document.getElementById("postes-content").innerHTML = postesContent;
+}
+
+var btnPostes  = document.getElementById("postes");
+btnPostes.addEventListener("click", GetInteger);
