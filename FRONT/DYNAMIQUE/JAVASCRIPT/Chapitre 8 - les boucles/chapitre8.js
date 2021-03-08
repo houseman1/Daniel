@@ -1,4 +1,4 @@
-/*Exercice 1 - Saisie
+//Exercice 1 - Saisie
 let prenom = "Dan";
 let count = 1;
 let listNom = [];
@@ -68,7 +68,6 @@ for (i=0; i<=lenWord; i++) {
     let ltr = letters[i];
     switch (ltr) { 
         case "a" :
-            a++;
         case "e" :
         case "i" :
         case "o" :
