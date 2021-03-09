@@ -49,7 +49,7 @@ for (i=1; i<=n; i++) {
     let t = document.createTextNode(i + " x " + x + " = " + res);//create a text node
     para.appendChild(t);//append the text node to the P node
     document.getElementById("d").appendChild(para);//append P node to div   
-}*/
+}
 
 //Exercice 5 - Nombre de voyelles.
 let word = window.prompt("Entrez un mot : ");

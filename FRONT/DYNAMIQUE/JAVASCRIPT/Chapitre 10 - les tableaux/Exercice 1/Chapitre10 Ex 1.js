@@ -1,19 +1,19 @@
 //Les Tableaux - Exercice 1
 let arraySize = parseInt(prompt("Entrez la taille de votre tableau"));
-let arr = Array();
+let tab = Array();
 
 console.log("longueur tableau :" + arraySize);
-let len = arr.length;
 
-for (var i = 0; i<len; i++) {
+for (var i = 0; i<arraySize; i++) {
     let inp = window.prompt("Entrez une valeur");
-    arr.push(inp);
+    tab.push(inp);
     console.log("longueur tableau :" + i);
 }
-console.log(arr);
+console.log(tab);
 
-affiche(arr);
+affiche(tab);
 
-function affiche (arr){
-    document.getElementById("a").innerHTML = arr;
+function affiche (tab){
+    document.getElementById("a").innerHTML = tab;
 }
+
