@@ -7,22 +7,30 @@
         <title>JAVASCRIPT</title>
     </head>
     <body>
-        <div id = "buttonsTop">
-            <button type="button" class="btn btn-warning" id="InitTab">InitTab</button>
-            <button type="button" class="btn btn-primary" id="SaisieTab">SaisieTab</button>
-            <button type="button" class="btn btn-primary" id="AfficheTab">AfficheTab</button>
-            <button type="button" class="btn btn-primary" id="RechercheTab">RechercheTab</button>
-            <button type="button" class="btn btn-primary" id="InfoTab">infoTab</button>
-            <button type="button" class="btn btn-primary" id="GetIntegerTab">GetIntegerTab</button>
+        <div class="row" >
+            <div class="col-4">
+            </div>
+            <div id = "buttonsTop" class="col-4">
+                <button type="button" class="btn btn-warning btn-block" id="InitTab">Initialise</button>
+                <p id = "nombre" class="text-center"></p>
+                <button type="button" class="btn btn-primary btn-block" id="SaisieTab" disabled>Saisie</button>
+                <p id = "saisie" class="text-center"></p>
+                <button type="button" class="btn btn-primary btn-block" id="AfficheTab"disabled>Affiche</button>
+                <p id = "affiche" class="text-center"></p>
+                <button type="button" class="btn btn-primary btn-block" id="RechercheTab"disabled>Recherche</button>
+                <p id = "recherche" class="text-center"></p>
+                <button type="button" class="btn btn-primary btn-block" id="InfoTab"disabled>info</button>
+                <p id = "maximum" class="text-center"></p>
+                <p id = "moyenne" class="text-center"></p>
+                <button type="button" class="btn btn-primary btn-block" id="GetIntegerTab"disabled>Integer</button>
+                <p id = "integer" class="text-center"></p> 
+            </div>
+            <div class="col-4">
+            </div> 
         </div>
         <br>
         <div>
-            <p id = "nombre"></p>
-            <p id = "affiche"></p>
-            <p id = "recherche"></p>
-            <p id = "integer"></p>
-            <p id = "maximum"></p>
-            <p id = "moyenne"></p>
+           
         </div>
         
     </body>
