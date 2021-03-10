@@ -5,6 +5,8 @@ let max = 0;
 let av = 0;
 let tot = 0;
 let int = 1;
+let i = 1;
+let entry = 1;
 
 var btnInit  = document.getElementById("InitTab");//identify button
 btnInit.addEventListener("click", InitTab);//Assign click event 
@@ -26,7 +28,7 @@ btnInfo.addEventListener("click", InfoTab);//Assign click event
 
 
 
-function InitTab(){
+function InitTab() {
     len = window.prompt("Entrez le nombre de postes");
     document.getElementById("nombre").innerHTML = "Le nombre de postes dans votre tableau est " + len + ".";
     document.getElementById("SaisieTab").disabled = false;
@@ -55,7 +57,7 @@ function AfficheTab(str){
     document.getElementById("RechercheTab").disabled = false;
 }
 
-function RechercheTab (){
+function RechercheTab (ndx, val){
     ndx = window.prompt("Entrez l'index de la valeur que vous cherchez");
     val = postesArray[ndx-1];
     document.getElementById("recherche").innerHTML = "La valuer que vous recherchez est: " + val;
@@ -71,19 +73,19 @@ function InfoTab (){
             console.log("Max = " + max);
         }
     }
-    av = tot / len
+    av = tot / len;
     document.getElementById("maximum").innerHTML = "Le maximum des postes est " + max;
-    document.getElementById("moyenne").innerHTML = "Le moyenne des postes est " + av;
+    document.getElementById("moyenne").innerHTML = "Le moyenne des postes est " + av.toFixed(1);
     document.getElementById("GetIntegerTab").disabled = false;
 }
 
 function GetInteger(){
     int = window.prompt("Entrez un nombre");
-
-    if (int.includes(".")) {
-        document.getElementById("integer").innerHTML = int + " est une 'décimale'.";
-    } else {
-        document.getElementById("integer").innerHTML = int + " est un nombre entier.";    
+    while (isNaN(int)) {
+        alert("Il faut entrer un nombre entier");
+        int = window.prompt("Entrez un nombre");
     }
+
+    document.getElementById("integer").innerHTML = "Votre nombre entier est : " + parseInt(int);    
     console.log(int);
 }

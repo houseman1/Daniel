@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Nous contacter</title>
+    </head>
+    <body>
+        <div id="form" class="align-items-center">
+            <form>
+                <div class="align-items-center">
+                    <h1>Vos coordonnés</h1>
+                    <p class="font-weight-light"><sup>&lowast;</sup>Ces zones sont obligatoires</p>
+                    <!-- company -->
+                    <div class="form-group">
+                        <label for="company">Société<sup>&lowast;</sup></label>
+                        <input type="text" class="form-control" id="company">
+                    </div>
+                    <!-- person to contact -->
+                    <div class="form-group">
+                        <label for="pac">Personne à contacter<sup>&lowast;</sup></label>
+                        <input type="text" class="form-control" id="pac">
+                    </div>
+                    <!-- address -->
+                    <div class="form-group overflow-auto">
+                        <label for="address">Address</label>
+                        <textarea class="form-control" id="address" rows="3"></textarea>
+                    </div>
+                    <!-- postcode -->
+                    <div class="form-group">
+                        <label for="postcode">Code Postale&lowast;</label>
+                        <input type="text" class="form-control" id="postcode">
+                    </div>
+                    <!-- town -->
+                    <div class="form-group">
+                        <label for="town">Ville</label>
+                        <input type="text" class="form-control" id="town">
+                    </div>
+                    <!-- email -->
+                    <div class="form-group">
+                        <label for="email">Email<sup>&lowast;</sup></label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <!-- telephone -->
+                    <div class="form-group">
+                        <label for="tel">Email<sup>&lowast;</sup></label>
+                        <input type="number" class="form-control" id="tel">
+                    </div>
+                    </div>
+                    <form class="form-inline">
+                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Sujet&lowast;</label>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <option selected>Veuillez s&eacute;l&eacute;ctionner un sujet</option>
+                            <option value="1">Mes commandes</option>
+                            <option value="2">Questions sur un produit</option>
+                            <option value="3">R&eacute;clamation</option>
+                            <option value="4">Autres</option>
+                        </select>
+                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="customControlInline">
+                        </div>
+                        <!-- buttons -->
+                        <button type="submit" class="btn btn-primary bg-dark">Envoyer</button>
+                        <button type="submit" class="btn btn-primary bg-dark">Effacer</button>
+                    </form>
+                    <br>
+                    
+                </div>
+            </form>
+        </div>
+    </body>
+<script src="JS_16.js"></script>
+<html>
