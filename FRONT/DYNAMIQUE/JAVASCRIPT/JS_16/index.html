@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <!-- Responsive viewport meta tag -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="JS_16.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
        
@@ -18,8 +20,8 @@
                         <h1>Vos coordonnés</h1>
                         <p class="font-weight-light"><sup>&lowast;</sup>Ces zones sont obligatoires</p>
                         <!-- société -->
-                        <div class="form-group">
-                            <label for="inputSociete" id="labelSociete">Société<sup>&lowast;</sup></label>
+                        <div class="form-group has-error">
+                            <label for="inputSociete">Société<sup>&lowast;</sup></label>
                             <input type="text" class="form-control" name="inputSociete" id="inputSociete">
                             <small id="errSociete" class="text-danger"></small>
                         </div>
