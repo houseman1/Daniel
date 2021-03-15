@@ -47,11 +47,11 @@ document.getElementById("inputCP").addEventListener("input", nonValide);
 document.getElementById("inputVille").addEventListener("input", nonValide);
 document.getElementById("inputEmail").addEventListener("input", nonValide);*/
 
-document.querySelectorAll("form-control").addEventListener("input", nonValide);
+//document.querySelectorAll("form-control").addEventListener("input", nonValide);
 
-function nonValide() {
-    .innerHTML = "";
-    }
+//function nonValide() {
+  //  .innerHTML = "";
+    //}
 
 
 //validate inputs by submit button
