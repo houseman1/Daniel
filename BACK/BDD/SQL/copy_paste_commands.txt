@@ -1,0 +1,25 @@
+CREATE DATABASE myDB;
+
+USE myDB; 
+
+CREATE TABLE myTable (
+	cli_id int AUTO_INCREMENT NOT NULL,
+	cli_nom  varchar (50) NOT NULL DEFAULT 'Houseman',
+	cli_prenom varchar (50),
+	cli_adresse varchar (50),
+	cli_age int(2) 
+	PRIMARY KEY (cli_id)
+);
+
+DESC myTable;  		--- shows table structure (not contents!)
+
+DROP TABLE myTable;	--- deletes table
+
+
+INSERT INTO myTable 
+(column_name1, column_name2, ...)
+VALUES
+('value1', 'value2', ...);
+
+SELECT * FROM myTable;		--- shows contents (asterisk selects everything in the table)
+
