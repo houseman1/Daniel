@@ -51,93 +51,114 @@
             <img src="src/img/promotion.jpg" class="imgage-fluid w-100" alt="promotion" title="promotion">    
         </div>
         <!-- form --> 
-        <form>
-            <div class="align-items-center">
-                <p class="font-weight-light"><sup>&lowast;</sup>Ces zones sont obligatoires</p>
-                <h1>Vos coordonnés</h1>
-                <div class="form-group">
-                    <label for="nom">Nom&lowast;</label>
-                    <input type="text" class="form-control" id="nom" placeholder="Veuillez saisir votre nom">
-                    <small id="errorNom" class="text-danger"></small>
-                </div>
-                <div class="form-group">
-                    <label for="prenom">Prénom</label>
-                    <input type="text" class="form-control" id="prenom" placeholder="Veuillez saisir votre prénom">
-                </div>
-                <!-- radio buttons -->
-                <div>
-                    <p>Sexe<sup>&lowast;</sup></p>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="feminin" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">f&eacute;minin</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="masculin" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">masculin</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="neutre" id="inlineRadio3" value="option3">
-                        <label class="form-check-label" for="inlineRadio3">neutre</label>
-                    </div>
-                </div>
-                <br>
-                <!-- date of birth -->
-                <div class="form row">         
-                    <div class="form-group col-12">
-                        <label for="dob">Date de naissance</label>
-                        <input class="form-control" type="date" value="jj/mm/aaaa" id="dob">
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="codePostale">Code Postale&lowast;</label>
-                    <input type="text" class="form-control" id="codePostale">
-                </div>
-                <div class="form-group">
-                    <label for="addresse">Adresse</label>
-                    <input type="text" class="form-control" id="addresse">
-                </div>
-                <div class="form-group">
-                    <label for="ville">Ville</label>
-                    <input type="text" class="form-control" id="ville">
-                </div>
-                <!-- email -->
-                <div class="form-group">
-                    <label for="email">Email<sup>&lowast;</sup></label>
-                    <input type="email" class="form-control" id="email" placeholder="dave.loper@afpa.fr">
-                </div>
-                <br>
-                <div>    
-                    <h1>Votre demande</h1>
-                </div>
-                <form class="form-inline">
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Sujet&lowast;</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                        <option selected>Veuillez s&eacute;l&eacute;ctionner un sujet</option>
-                        <option value="1">Mes commandes</option>
-                        <option value="2">Questions sur un produit</option>
-                        <option value="3">R&eacute;clamation</option>
-                        <option value="4">Autres</option>
-                    </select>
-                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                        <input type="checkbox" class="custom-control-input" id="customControlInline">
-                    </div>
+        <div class="container col-4"></div>
+            <form id="formContact" method="GET" action="http://bienvu.net/script.php">
+                <div class="align-items-center">
+                    <p class="font-weight-light"><sup>&lowast;</sup>Ces zones sont obligatoires</p>
+                    <h1>Vos coordonnés</h1>
+                    <!-- nom -->
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="valueNom">Nom<sup>&lowast;</sup></label>
+                        <input type="text" class="form-control" id="valueNom" placeholder="Veuillez saisir votre nom">
+                        <small id="errorNom" class="text-danger"></small>
                     </div>
-                </form>
-                <!-- checkbox -->
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="jaccepte">
-                    <label class="form-check-label font-weight-light" for="jaccepte">J'accepte le traitment de ce formulaire.</label>
+                    <!-- prénom -->
+                    <div class="form-group">
+                        <label for="valuePrenom">Prénom<sup>&lowast;</sup></label>
+                        <input type="text" class="form-control" id="valuePrenom" placeholder="Veuillez saisir votre prénom">
+                        <small id="errorPrenom" class="text-danger"></small>
+                    </div>
+                    <!-- radio buttons -->
+                    <div>
+                        <p>Sexe<sup>&lowast;</sup></p>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio" checked>Féminin
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Masculin
+                            </label>
+                        </div>
+                        <div class="form-check-inline disabled">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Neutre
+                            </label>
+                        </div>  
+                    </div>
+                    <br>
+                    <!-- date of birth -->
+                    <div class="form row">         
+                        <div class="form-group col-12">
+                            <label for="valueDdn">Date de naissance<sup>&lowast;</sup></label>
+                            <input class="form-control" type="date" id="valueDdn">
+                            <small id="errorDdn" class="text-danger"></small>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- code postal -->
+                    <div class="form-group">
+                        <label for="valueCode">Code Postal<sup>&lowast;</sup></label>
+                        <input type="text" class="form-control" id="valueCode">
+                        <small id="errorCode" class="text-danger"></small>
+                    </div>
+                    <!-- addresse -->
+                    <div class="form-group">
+                        <label for="addresse">Adresse</label>
+                        <input type="text" class="form-control" id="addresse">
+                    </div>
+                    <!-- ville -->
+                    <div class="form-group">
+                        <label for="ville">Ville</label>
+                        <input type="text" class="form-control" id="ville">
+                    </div>
+                    <!-- email -->
+                    <div class="form-group">
+                        <label for="valueEmail">Email<sup>&lowast;</sup></label>
+                        <input type="email" class="form-control" id="valueEmail" placeholder="dave.loper@afpa.fr">
+                        <small id="errorEmail" class="text-danger"></small>
+                    </div>
+                    <br>
+                    <div>    
+                        <h1>Votre demande</h1>
+                    </div>
+                    <!-- select -->
+                    <form class="form-inline">
+                        <label class="my-1 mr-2" for="valueSelect">Sujet<sup>&lowast;</sup></label>
+                        <select class="custom-select my-1 mr-sm-2" id="valueSelect">
+                            <option selected disabled value="">Veuillez s&eacute;l&eacute;ctionner un sujet</option>
+                            <option value="1">Mes commandes</option>
+                            <option value="2">Questions sur un produit</option>
+                            <option value="3">R&eacute;clamation</option>
+                            <option value="4">Autres</option>
+                        </select>
+                        <small id="errorSelect" class="text-danger"></small>
+                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="customControlInline">
+                        </div>
+                        <!-- question -->
+                        <div class="form-group">
+                            <label for="valueQuestion">Votre question<sup>&lowast;</sup></label>
+                            <textarea class="form-control" id="valueQuestion" rows="3"></textarea>
+                            <small id="errorQuestion" class="text-danger"></small>
+                        </div>
+                    </form>
+                    <!-- checkbox -->
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="valueCheckbox">
+                        <label class="form-check-label font-weight-light" for="valueCheckbox">J'accepte le traitment de ce formulaire.</label>
+                        <small id="errorCheckbox" class="text-danger"></small>
+                    </div>
+                    <br>
+                    <!-- buttons -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary bg-dark">Envoyer</button>
+                        <button type="submit" class="btn btn-primary bg-dark">Annuler</button>
+                    </div>
                 </div>
-                <br>
-                <!-- buttons -->
-                <button type="submit" class="btn btn-primary bg-dark">Envoyer</button>
-                <button type="submit" class="btn btn-primary bg-dark">Annuler</button>
-            </div>
-        </form>
+            </form>
+        </div>
         <br>
         <!-- navbar -->
         <div class="row">
@@ -163,14 +184,8 @@
             </nav>
         </div>
         <script src="JS_jarditou.js"></script>
-         <!-- bootstrap Javascript -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-     </body>
-     
- </html>
-    </body>
-</html>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 </html>
