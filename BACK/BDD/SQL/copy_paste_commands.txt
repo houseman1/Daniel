@@ -11,9 +11,15 @@ CREATE TABLE myTable (
 	PRIMARY KEY (cli_id)
 );
 
-DESC myTable;  		--- shows table structure (not contents!)
+_____________________________________________________________________________________________________________________________________
 
-DROP TABLE myTable;	--- deletes table
+
+DESC myTable;  			--- shows table structure (not contents!)
+
+
+DROP TABLE myTable;		--- deletes table
+
+______________________________________________________________________________________________________________________________________
 
 
 INSERT INTO myTable 
@@ -21,5 +27,121 @@ INSERT INTO myTable
 VALUES
 ('value1', 'value2', ...);
 
-SELECT * FROM myTable;		--- shows contents (asterisk selects everything in the table)
+INSERT INTO myTable
+VALUES
+('Grover\'s Mill')		--- backslash tells SQL ' is not ending the text
+
+
+_______________________________________________________________________________________________________________________________________
+
+SELECT * FROM myTable;		--- shows contents (asterisk selects all th columns in the table)
+WHERE cli_nom = 'Anne';
+
+SELECT * FROM fish_records
+WHERE state = NJ;
+
+SELECT drink_name, main, second
+FROM easy_drinks
+WHERE main = 'soda';
+
+SELECT location
+FROM doughnut_ratings
+WHERE type = 'plain glazed'
+AND
+rating = 10;
+
+SELECT drink_name
+FROM drink_info
+WHERE
+calories IS NULL;
+
+SELECT * FROM my_contacts
+WHERE location LIKE '%CA';		--- e.g. 'Oakland, CA'  --- % is a stand-in for any number of characters
+
+SELECT first_name
+FROM my_contacts
+WHERE first_name LIKE '_im';		--- e.g. 'Jim'		--- _ is a stand-in for just one character
+
+SELECT drink_name
+FROM drink_info
+WHERE
+calories BETWEEN 30 AND 60;
+
+SELECT drink_name
+FROM drink_info
+WHERE
+drink_name BETWEEN 'G' AND 'O';
+
+AND = you want ALL of your conditions to be true
+OR = you want ANY of your conditions to be true
+
+SELECT date_name
+FROM black_book
+WHERE
+rating IN ('innovative', 'fabulous');	--- returns any name in table with these one of these qualities.  Use NOT IN for opposite query
+
+SELECT date_name
+FROM black_book
+WHERE NOT date_name LIKE 'A%'
+AND NOT date_name LIKE 'B%';
+
+You can use NOT with BETWEEN, LIKE and IN.  (NOT must go right after WHERE  ---  NOT IN is the exception.  
+You can say WHERE NOT main IN ('iced tea', 'soda'); or WHERE main NOT IN ('soda', 'iced tea');
+
+SELECT * FROM easy_drinks
+WHERE main IS NOT NULL;			--- or WHERE NOT main is NULL;
+
+SELECT * FROM easy_drinks
+WHERE NOT main = 'soda'
+AND NOT main = 'iced tea';
+
+
+__________________________________________________________________________________________________________________________________________
+
+
+always use a SELECT first to see check what you will be deleting
+
+1 SELECT (to check)
+2 INSERT (the new record)
+3 DELETE (using the same WHERE clause used to SELECT)
+
+DELETE FROM clown_info
+WHERE activities = 'dancing';		--- DELETE can't delete single column but can delete a single row depending on WHERE
+
+DELETE FROM myTable     		--- !!! deletes all rows !!!
+
+
+
+UPDATE doughnut_ratings
+SET
+type = 'glazed'
+WHERE type = 'plain glazed';		--- replaces 'plain glazed' in column 'type' with 'glazed'.  The WHERE says to only change rows
+					    where type is 'plain glaized'.
+
+
+UPDATE myTable
+SET first_column = 'new_value',
+second-column = 'another_value';	--- You can use UPDATE to change the value of a single column or tableful of columns.
+
+You can use UPDATE to update a single row or multiple rows, depending on the WHERE clause.
+
+UPDATE table_name
+SET column_name = newvalue
+WHERE column_name = somevalue;		--- changes the column name to newvalue
+
+
+__________________________________________________________________________________________________________________________________________
+
+
+
+DEC, short for DECIMAL 		- never use quotes
+INT or INTEGER 			- never use quotes
+CHAR or CHARACTER 		- always use single quotes
+BLOB 				- always use single quotes
+DATE 				- always use single quotes
+VARCHAR 			- always use single quotes
+DATETIME, TIME or TIMESTAMP 	- always use quotes
+
+
+
 
