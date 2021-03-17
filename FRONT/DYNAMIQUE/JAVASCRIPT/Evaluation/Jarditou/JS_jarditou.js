@@ -31,7 +31,7 @@ let valueCheckbox = document.getElementById("valueCheckbox");
 let alertNom = " votre nom\n";
 let alertPrenom = " votre prénom\n";
 let alertDdn = " votre date de naissance\n";
-let alertCode = " votre code postal\n";
+let alertCode = " votre code postal (5 nombres)\n";
 let alertEmail = " votre adresse e-mail avec un symbole @\n";
 let alertSelect = " un sujet\n";
 let alertQuestion = " votre question\n";
@@ -39,9 +39,12 @@ let alertCheckbox = " il faut accepter le traitment de ce formulaire\n";
 let alertArray = ["Entrez:\n"];
 let arrayIndex = 0;
 
+
+
+
 //validate inputs
 formContact.addEventListener("submit", function(event) {
-    
+
    //nom
     if (valueNom.value.length < 1) {
         event.preventDefault();
