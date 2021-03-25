@@ -153,12 +153,11 @@ WHERE NUMFOU = 9180
 --2 Dans la table vente, mettre à jour le prix2 des articles dont le prix2 est null, en affectant a valeur de prix.
 UPDATE vente
 SET prix2 = 999
-WHERE prix2 IS NULL
--- no results as no values are null in the 'vente' table
+WHERE prix2 IS NULL-- no results as no values are null in the 'vente' table
+
 UPDATE vente
 SET prix2 = 999
-WHERE prix2 = 0
--- updated two fields
+WHERE prix2 = 0-- updated two fields
 
 --3 Mettre à jour le champ obscom en positionnant '*****' pour toutes les commandes dont le fournisseur a un indice de satisfaction <5
 UPDATE fournis f
