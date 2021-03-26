@@ -44,6 +44,3 @@ CREATE TABLE `est_compose` (
 
 CREATE INDEX idx_cli_nom
 ON client(cli_nom);
-
-INSERT INTO `client` (`cli_num`, `cli_nom`, `cli_adresse`, `cli_tel`) VALUES
-	();

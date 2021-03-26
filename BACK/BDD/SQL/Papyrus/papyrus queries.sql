@@ -140,7 +140,11 @@ WHERE qtecde > (qteann * 0.9)
 
 -- 19 Calculer le chiffre d'affaire par fournisseur pour l'année 93 sachant que les prix indiqués sont hors taxes et que le taux de TVA est 20%.
 
--- l'annee 93 ?
+SELECT numfou, SUM(qtecde * priuni * 1.20) as 'CA'
+FROM ligcom l
+JOIN entcom e ON l.numcom = e.numcom
+GROUP BY numfou
+ORDER BY CA DESC
 
 
 --Les besoins de mise à jour
