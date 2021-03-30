@@ -7,7 +7,7 @@ WHERE Country = 'France'
 SELECT ProductName as 'Produit', UnitPrice as 'Prix' 
 FROM products p 
 JOIN suppliers s ON p.SupplierID = s.SupplierID
-LIMIT 3
+WHERE CompanyName = "Exotic Liquids"
 
 --3 - Nombre de produits vendus par les fournisseurs Français dans l’ordre décroissant :
 SELECT CompanyName AS 'Fournisseur', COUNT(s.SupplierID) AS 'Nbre produits' 
