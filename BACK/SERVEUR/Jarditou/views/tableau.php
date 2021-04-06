@@ -9,7 +9,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         
-        <title>Tableau Bootstrap</title>
+        <title>Tableau</title>
     </head>    
     <body class="container">   
         <!-- header -->
@@ -23,20 +23,20 @@
         <!-- navbar -->
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
-                <a class="navbar-brand" href="index.html">Jarditou</a>
+                <a class="navbar-brand" href="../index.php">Jarditou</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Accueil</a>
+                        <a class="nav-link" href="../index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="TableauBootstrap.html">Tableau</a>
+                        <a class="nav-link" href="tableau.php">Tableau</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="ContactBootstrap.html">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -50,6 +50,51 @@
         <div class="row max-width">
             <img src="src/img/promotion.jpg" class="image-fluid w-100" alt="promotion" title="promotion">    
         </div>
+
+        <?php
+            
+            require "connexion_bdd.php";
+            //connect to the database
+            $db = connect_db();
+
+            //PAGINATION
+
+            //Determine which page we are on
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+    
+            //Assign the total number of articles to the variable $sql
+            $sql = "SELECT COUNT(*) AS nb_articles FROM produits"; 
+            //Prepare the query
+            $query = $db->prepare($sql);
+            //Execute the query
+            $query->execute();
+            //Fetch the number of articles and assign it to the variable $result
+            $result = $query->fetch();
+            //Determine the total number of items in produits
+            $nbArticles = (int) $result['nb_articles'];
+            //Determine the number of items per page
+            $parPage = 8;
+            //Assign the total number of pages to the variable $pages
+            $pages = ceil($nbArticles / $parPage);
+            //Assign the first item on the page to the variable $premier
+            $premier = ($currentPage * $parPage) - $parPage;
+            //Assign 8 items to the variable $requete
+            $requete = 'SELECT * FROM produits  LIMIT :premier ,:parpage';
+
+            //Prepare the query
+            $result = $db->prepare($requete);
+            $result->bindValue(':premier', $premier, PDO::PARAM_INT);
+            $result->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+
+            //Execute the query
+            $result->execute();
+
+        ?>
+
         <!-- table -->
         <div class="table-responsive">
             <table class="table">
@@ -117,13 +162,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                            <a class="nav-link text-white" href="MentionsLegale.html">mentions légales</a>
+                            <a class="nav-link text-white" href="views/mentions_legale.html">mentions légales</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link text-white" href="Horaires.html">horaires</a>
+                            <a class="nav-link text-white" href="views/horaires.html">horaires</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link text-white" href="PlanDuSite.html">plan du site</a>
+                            <a class="nav-link text-white" href="views/plan_du_site.html">plan du site</a>
                             </li>
                         </ul>
                     </div>

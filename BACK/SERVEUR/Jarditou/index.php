@@ -30,13 +30,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Accueil</a>
+                        <a class="nav-link" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="TableauBootstrap.html">Tableau</a>
+                        <a class="nav-link" href="views/tableau.php">Tableau</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="ContactBootstrap.html">Contact</a>
+                        <a class="nav-link" href="views/contact.php">Contact</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -92,13 +92,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                            <a class="nav-link text-white" href="MentionsLegale.html">mentions légales</a>
+                            <a class="nav-link text-white" href="views/mentions_legale.html">mentions légales</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link text-white" href="Horaires.html">horaires</a>
+                            <a class="nav-link text-white" href="views/horaires.html">horaires</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link text-white" href="PlanDuSite.html">plan du site</a>
+                            <a class="nav-link text-white" href="views/plan_du_site.html">plan du site</a>
                             </li>
                         </ul>
                     </div>
