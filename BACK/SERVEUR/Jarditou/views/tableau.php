@@ -53,9 +53,10 @@
 
         <?php
             
-            require "connexion_bdd.php";
+            require "../controller/connect_db.php";
             //connect to the database
             $db = connect_db();
+
 
             //PAGINATION
 
@@ -85,6 +86,7 @@
             //Assign 8 items to the variable $requete
             $requete = 'SELECT * FROM produits  LIMIT :premier ,:parpage';
 
+
             //Prepare the query
             $result = $db->prepare($requete);
             $result->bindValue(':premier', $premier, PDO::PARAM_INT);
@@ -93,65 +95,121 @@
             //Execute the query
             $result->execute();
 
-        ?>
+            //Handle query errors
+            if (!$result) {
+                $tableauErreurs = $db->errorInfo();
+                echo $tableauErreur[2]; 
+                die("Erreur dans la requête");
+                }
 
-        <!-- table -->
+                if ($result->rowCount() == 0) 
+                {
+                //If no records are found
+                die("La table est vide");
+                }
+
+        ?>
+        <br>
+        <a href="ajout.php"><button class="btn btn-primary">Ajouter un article</button></a>
+        
+        <p id="tableau"></p>
         <div class="table-responsive">
-            <table class="table">
-                <thead class="thead-secondary">
-                    <tr>
-                        <th scope="col"><b>Photo</b></th>
-                        <th scope="col"><b>ID</b></th>
-                        <th scope="col"><b>Catégorie</b></th>
-                        <th scope="col"><b>Libellé</b></th>
-                        <th scope="col"><b>Prix</b></th>
-                        <th scope="col"><b>Couleur</b></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-warning">
-                        <th scope="row"><img src="src/img/7.jpg" height="100" alt="bbq 7" class="image-fluid"></th>
-                        <td>7</td>
-                        <td>Barbecues</td>
-                        <td>Aramis</td>
-                        <td>110.00€</td>
-                        <td>Brun</td>
-                    </tr>
-                    <tr >
-                        <th scope="row"><img src="src/img/8.jpg" height="100" alt="bbq 8" class="image-fluid"></th>
-                        <td>8</td>
-                        <td>Barbecues</td>
-                        <td>Athos</td>
-                        <td>249.99€</td>
-                        <td>Noir</td>
-                    </tr>
-                    <tr class="table-warning">
-                        <th scope="row"><img src="src/img/11.jpg" height="100" alt="bbq 11" class="image-fluid"></th>
-                        <td>11</td>
-                        <td>Barbecues</td>
-                        <td>Clatronic</td>
-                        <td>135.90€</td>
-                        <td>Chrome</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><img src="src/img/12.jpg" height="100" alt="bbq 12" class="image-fluid"></th>
-                        <td>12</td>
-                        <td>Barbecues</td>
-                        <td>Camping</td>
-                        <td>88.0€</td>
-                        <td>Noir</td>
-                    </tr>
-                    <tr class="table-warning">
-                        <th scope="row"><img src="src/img/13.jpg" height="100" alt="bbq 13" class="image-fluid"></th>
-                        <td>13</td>
-                        <td>Brouette</td>
-                        <td>Green</td>
-                        <td>49.00€</td>
-                        <td>Verte</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="table table-hover table-bordered w-100 w-sm-50"> 
+            <thead>
+                <tr class="table-active">
+                <th>Photos</th>
+                <th>ID</th>
+                <th>Référence</th>
+                <th>Libellé</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>Couleur</th>
+                <th>Ajout</th>
+                <th>Modif</th>
+                <th>Bloqué</th>
+                </tr>   
+            </thead>
+            <tbody>
+
+            <?php
+
+                while ($row = $result->fetch(PDO::FETCH_OBJ)){     
+                    echo'<tr>';?>
+                    <!--photo-->
+                    <td class="table-warning"><img src="src/img/<?=$row->pro_id.".".$row->pro_photo;?>" alt="<?=$row->pro_id.".".$row->pro_photo;?>" width="100">.</td>
+                    <?php
+                        //pro_id
+                        echo"<th>".$row->pro_id."</th>";
+                        //Référence
+                        echo"<th class='table-warning'>".$row->pro_ref."</th>";
+                        //Libellé column entry with clickable link to detail.php
+                        echo '<th><a href="details.php?pro_id='.$row->pro_id.'" title='.$row->pro_libelle.'>'.$row->pro_libelle.'</a></th>';
+                        //Prix
+                        echo"<th class='table-warning'>".$row->pro_prix."</th>";
+                        
+                        //Stock column entry using if loop to check stock levels
+                        if ($row->pro_stock == 0)  {
+                            echo"<th>"."Rupture de stock"."</th>";
+                            } else {
+                                echo"<th>".$row->pro_stock."</th>";
+                            }
+                        
+                        //Colour
+                        echo"<th class='table-warning'>".$row->pro_couleur."</th>";
+                        //Ajout
+                        echo"<th>".$row->pro_d_ajout."</th>";
+                        //Modif
+                        echo"<th class='table-warning'>".$row->pro_d_modif."</th>";
+                        
+                        //Display bloqué button if stock is blocked
+                        if ($row->pro_bloque == 1){   ?>
+                        <th>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Bloqué</button>
+                            <!--Modal informing user that they will be contacted when stock becomes available-->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Produit Bloqué</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Nous vous tiendront informé sur les futurs disponibilités du produit.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </th>
+                <?php   }
+                }
+                ?>
+            </tbody>        
+        </table>
+        </div> 
+        <!-- Navigation for pagination -->
+        <nav>
+            <ul class="pagination">
+                <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">  <!--disabled pour desactivé le lien en page 1-->
+                    <a href="tableau.php?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                </li>
+                <?php for($page = 1; $page <= $pages; $page++): ?>
+                    <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                    <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                        <a href="tableau.php?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                    </li>
+                <?php endfor ?>
+                <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+                <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">  <!--disabled pour desactivé le lien en page maximum-->
+                    <a href="tableau.php?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                </li>
+            </ul>
+        </nav>
         <!-- navbar -->
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light bg-dark col-12">
@@ -175,10 +233,10 @@
                 </div>
             </nav>
         </div>
-        <script src="JS_jarditou.js"></script>
-        <!-- bootstrap Javascript -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-     </body>
+    <script src="JS_jarditou.js"></script>
+    <!-- bootstrap Javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
 </html>
